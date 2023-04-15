@@ -60,6 +60,13 @@ if st.button('Predict'):
 
     else:
         st.write('High chances of flood')
+        b=np.asarray([[r1,r2,r3,r4,r5]])
+        b1=b.reshape(5,)
+        xi=["Panchganga","Krishna","Koyna","Gayatri","Dudhganga"]
+        d={"b1":pd.Series(b1,index=xi)}
+        df=pd.DataFrame(d)
+        
+        st.bar_chart(df) 
 
     #st.write(pkm.predict_proba)
 
