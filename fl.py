@@ -57,4 +57,3 @@ if st.button('Predict'):
 
 else:
     'Good By'
-Footer
