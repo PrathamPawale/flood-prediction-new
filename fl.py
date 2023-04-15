@@ -4,11 +4,15 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 import seaborn as sns
+from PIL import Image
+
 
 
 import pickle
 
 st.title("FLOOD Prediction ")
+image=Image.open("new_img.jpg")
+st.image(image,width=540)
 
 st.subheader('select values')
 r1=np.asarray(st.slider('Panchganga',min_value=2000,max_value=5600))
@@ -39,15 +43,20 @@ if st.button('Predict'):
         st.write('No flood will occur')
 
         # plots
-        sns.set(style="white")
+     #   sns.set(style="white")
         #make changes  from here
-        a=np.asarray([125,523,8006,600,7985,45222])
-        bars=('r1','r2','r3','r4','r5','kol_res')
-        y_po=np.arange(len(bars))
-        plt.bar(y_po,a)
-        plt.xticks(y_po,bars)
-        plt.show()
-        sns.barplot(a)
+        
+        
+     
+        b=np.asarray([[r1,r2,r3,r4,r5]])
+        b1=b.reshape(5,)
+        xi=["Panchganga","Krishna","Koyna","Gayatri","Dudhganga"]
+        d={"b1":pd.Series(b1,index=xi)}
+        df=pd.DataFrame(d)
+        
+        st.bar_chart(df) 
+        
+        st.balloons()
 
     else:
         st.write('High chances of flood')
