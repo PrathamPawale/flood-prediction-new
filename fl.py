@@ -47,7 +47,7 @@ if st.button('Predict'):
         plt.bar(y_po,a)
         plt.xticks(y_po,bars)
         plt.show()
-        sns.boxplot(a,x=none,y="Rain Fall in MM")
+        sns.boxplot(a,x=None,y="Rain Fall in MM")
 
     else:
         st.write('High chances of flood')
